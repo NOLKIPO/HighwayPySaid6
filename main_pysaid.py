@@ -261,6 +261,14 @@ class MainWindow(QMainWindow):
             for col, text in enumerate([num_item, client_id, workspace, status, mode]):
                 item = QTableWidgetItem(text)
                 item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+                
+                # Устанавливаем цвет фона для статуса
+                if col == 3:  # Столбец статуса
+                    if "Запущен" in text:
+                        item.setBackground("#d5f4e6")  # Светло-зеленый для запущенных
+                    else:
+                        item.setBackground("#f4d5d5")  # Светло-красный для остановленных
+                
                 self.table.setItem(row, col, item)
 
         # Автоподбор ширины
@@ -542,8 +550,23 @@ class MainWindow(QMainWindow):
             self.stop_worker(key)
         event.accept()
 
+def load_stylesheet():
+    """Загружает файл стилей из файла styles.css"""
+    try:
+        with open('styles.css', 'r', encoding='utf-8') as f:
+            return f.read()
+    except FileNotFoundError:
+        return ""
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    
+    # Применяем стили
+    stylesheet = load_stylesheet()
+    if stylesheet:
+        app.setStyleSheet(stylesheet)
+    
     win = MainWindow()
     win.show()
     sys.exit(app.exec())

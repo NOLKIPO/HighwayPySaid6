@@ -1,0 +1,155 @@
+/* Стили для Highway Signer */
+
+/* Основное окно */
+QMainWindow {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #e6f3ff, stop:1 #cce6ff);
+}
+
+/* Заголовки */
+QLabel {
+    color: #2c3e50;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+QLabel[objectName="table_label"], 
+QLabel[objectName="edit_label"], 
+QLabel[objectName="log_label"] {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding: 5px 0;
+}
+
+/* Таблица */
+QTableWidget {
+    background-color: white;
+    alternate-background-color: #f8f9fa;
+    gridline-color: #e0e0e0;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+QTableWidget::item:selected {
+    background-color: #3498db;
+    color: white;
+}
+
+QHeaderView::section {
+    background-color: #3498db;
+    color: white;
+    padding: 8px;
+    border: 1px solid #2980b9;
+    font-weight: bold;
+}
+
+/* Кнопки */
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+QPushButton:pressed {
+    background-color: #21618c;
+    transform: translateY(0);
+}
+
+QPushButton[objectName="start_stop_btn"] {
+    background-color: #2ecc71;
+}
+
+QPushButton[objectName="start_stop_btn"]:hover {
+    background-color: #27ae60;
+}
+
+QPushButton[objectName="stop_all_btn"] {
+    background-color: #e74c3c;
+}
+
+QPushButton[objectName="stop_all_btn"]:hover {
+    background-color: #c0392b;
+}
+
+/* Текстовые поля */
+QLineEdit {
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: white;
+}
+
+QLineEdit:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Радиокнопки */
+QRadioButton {
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 5px;
+}
+
+QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+}
+
+/* Область прокрутки */
+QScrollArea {
+    border: none;
+    background-color: transparent;
+}
+
+/* Логи */
+QTextEdit {
+    background-color: #f8f9fa;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 11px;
+}
+
+/* Сплиттер */
+QSplitter::handle {
+    background-color: #bdc3c7;
+}
+
+QSplitter::handle:hover {
+    background-color: #3498db;
+}
+
+/* Индикаторы статуса */
+QLabel[status="running"] {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+QLabel[status="stopped"] {
+    color: #e74c3c;
+    font-weight: bold;
+}

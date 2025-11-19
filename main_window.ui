@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Highway Signer — Управление обменом файлами</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -22,12 +25,18 @@
         <property name="text">
          <string>➕ Добавить</string>
         </property>
+        <property name="toolTip">
+         <string>Добавить новое рабочее место</string>
+        </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="stop_all_btn">
         <property name="text">
          <string>⏹️ Остановить все</string>
+        </property>
+        <property name="toolTip">
+         <string>Остановить все рабочие места</string>
         </property>
        </widget>
       </item>
@@ -313,7 +322,10 @@
            <item>
             <widget class="QPushButton" name="save_btn">
              <property name="text">
-              <string>Сохранить</string>
+              <string>💾 Сохранить</string>
+             </property>
+             <property name="toolTip">
+              <string>Сохранить изменения</string>
              </property>
             </widget>
            </item>
@@ -322,12 +334,18 @@
              <property name="text">
               <string>🗑 Удалить</string>
              </property>
+             <property name="toolTip">
+              <string>Удалить выбранное рабочее место</string>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QPushButton" name="start_stop_btn">
              <property name="text">
               <string>▶ Запустить</string>
+             </property>
+             <property name="toolTip">
+              <string>Запустить или остановить выбранное рабочее место</string>
              </property>
             </widget>
            </item>
