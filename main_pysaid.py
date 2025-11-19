@@ -264,10 +264,11 @@ class MainWindow(QMainWindow):
                 
                 # Устанавливаем цвет фона для статуса
                 if col == 3:  # Столбец статуса
+                    from PyQt6.QtGui import QColor
                     if "Запущен" in text:
-                        item.setBackground("#d5f4e6")  # Светло-зеленый для запущенных
+                        item.setBackground(QColor("#d5f4e6"))  # Светло-зеленый для запущенных
                     else:
-                        item.setBackground("#f4d5d5")  # Светло-красный для остановленных
+                        item.setBackground(QColor("#f4d5d5"))  # Светло-красный для остановленных
                 
                 self.table.setItem(row, col, item)
 

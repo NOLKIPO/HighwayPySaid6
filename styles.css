@@ -64,13 +64,10 @@ QPushButton {
 
 QPushButton:hover {
     background-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 QPushButton:pressed {
     background-color: #21618c;
-    transform: translateY(0);
 }
 
 QPushButton[objectName="start_stop_btn"] {
