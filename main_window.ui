@@ -13,72 +13,150 @@
   <property name="windowTitle">
    <string>Highway Signer — Управление обменом файлами</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QHBoxLayout" name="topButtonLayout">
       <item>
-       <widget class="QPushButton" name="add_btn">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="text">
-         <string>➕ Добавить</string>
+         <string>PushButton</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="stop_all_btn">
+       <widget class="QLabel" name="table_label">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
-         <string>⏹️ Остановить все</string>
+         <string>Рабочие места</string>
         </property>
        </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>20</width>
           <height>20</height>
          </size>
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QLabel" name="edit_label">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Действия </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="add_btn">
+        <property name="toolTip">
+         <string>Добавить новое рабочее место</string>
+        </property>
+        <property name="text">
+         <string>➕ Добавить</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="save_btn">
+        <property name="toolTip">
+         <string>Сохранить изменения</string>
+        </property>
+        <property name="text">
+         <string>💾 Сохранить</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="start_stop_btn">
+        <property name="toolTip">
+         <string>Запустить или остановить выбранное рабочее место</string>
+        </property>
+        <property name="text">
+         <string>▶ Запустить</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="delete_btn">
+        <property name="toolTip">
+         <string>Удалить выбранное рабочее место</string>
+        </property>
+        <property name="text">
+         <string>🗑 Удалить</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="stop_all_btn">
+        <property name="toolTip">
+         <string>Остановить все рабочие места</string>
+        </property>
+        <property name="text">
+         <string>⏹️ Остановить все</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QLabel" name="table_label">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Рабочие места</string>
-      </property>
-     </widget>
     </item>
     <item>
      <widget class="QSplitter" name="main_splitter">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Orientation::Horizontal</enum>
       </property>
       <widget class="QWidget" name="table_container">
        <layout class="QVBoxLayout" name="verticalLayout_table">
         <item>
          <widget class="QTableWidget" name="table">
           <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
           </property>
           <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
           </property>
           <property name="verticalScrollMode">
-           <enum>QAbstractItemView::ScrollPerPixel</enum>
+           <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
           </property>
           <property name="horizontalScrollMode">
-           <enum>QAbstractItemView::ScrollPerPixel</enum>
+           <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
           </property>
           <attribute name="horizontalHeaderCascadingSectionResizes">
            <bool>false</bool>
@@ -122,6 +200,9 @@
        </layout>
       </widget>
       <widget class="QScrollArea" name="scrollArea">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -130,24 +211,11 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>378</width>
-          <height>598</height>
+          <width>789</width>
+          <height>352</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_scroll">
-         <item>
-          <widget class="QLabel" name="edit_label">
-           <property name="font">
-            <font>
-             <pointsize>11</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Редактирование</string>
-           </property>
-          </widget>
-         </item>
          <item>
           <layout class="QGridLayout" name="edit_grid_layout">
            <item row="0" column="0">
@@ -303,31 +371,6 @@
             <widget class="QPushButton" name="generate_key_btn">
              <property name="text">
               <string>Сгенерировать ключ</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="actions_layout">
-           <item>
-            <widget class="QPushButton" name="save_btn">
-             <property name="text">
-              <string>Сохранить</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="delete_btn">
-             <property name="text">
-              <string>🗑 Удалить</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="start_stop_btn">
-             <property name="text">
-              <string>▶ Запустить</string>
              </property>
             </widget>
            </item>
