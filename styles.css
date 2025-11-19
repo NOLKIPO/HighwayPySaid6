@@ -29,6 +29,7 @@ QTableWidget {
     border: 1px solid #d0d0d0;
     border-radius: 8px;
     font-family: "Segoe UI", Arial, sans-serif;
+    width: 100%;
 }
 
 QTableWidget::item {
@@ -44,7 +45,7 @@ QTableWidget::item:selected {
 
 QHeaderView::section {
     background-color: #3498db;
-    color: white;
+    color: #f0f0f0; /* Светло-серый цвет вместо белого */
     padding: 8px;
     border: 1px solid #2980b9;
     font-weight: bold;
