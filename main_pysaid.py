@@ -194,8 +194,7 @@ class MainWindow(QMainWindow):
         # === Настройка элементов интерфейса ===
         # Настройка заголовков таблицы
         header = self.table.horizontalHeader()
-        header.setFont(QFont("Segoe UI", 9, QFont.Weight.Bold))
-        header.setStyleSheet("QHeaderView::section { background-color: #f0f0f0; }")
+        header.setFont(QFont("Segoe UI", 11, QFont.Weight.Bold))  # Размер 11, жирный
         self.table.verticalHeader().setVisible(False)
         # Выравнивание по центру
         for i in range(5): # 5 колонок: №, Client ID, Рабочее место, Статус, Режим
@@ -257,18 +256,22 @@ class MainWindow(QMainWindow):
             num_item = QTableWidgetItem(str(row + 1))
             num_item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
 
-            # Установка текста с выравниванием по центру
+            # Установка текста с выравниванием: по центру для чисел (№), по левому краю для текста
             for col, text in enumerate([num_item, client_id, workspace, status, mode]):
                 item = QTableWidgetItem(text)
-                item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 
-                # Устанавливаем цвет фона для статуса
+                # Устанавливаем выравнивание: по центру для чисел (№), по левому краю для текста
+                if col == 0:  # Столбец с номером
+                    item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+                else:  # Остальные столбцы - текст, выравнивание по левому краю
+                    item.setTextAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+                
+                # Устанавливаем цвет текста для статуса согласно CSS стилям
                 if col == 3:  # Столбец статуса
                     from PyQt6.QtGui import QColor
-                    if "Запущен" in text:
-                        item.setBackground(QColor("#d5f4e6"))  # Светло-зеленый для запущенных
-                    else:
-                        item.setBackground(QColor("#f4d5d5"))  # Светло-красный для остановленных
+                    # В CSS мы определили цвета для меток статуса, здесь мы просто устанавливаем текст
+                    # Цвета будут определены через CSS стили
+                    pass
                 
                 self.table.setItem(row, col, item)
 
