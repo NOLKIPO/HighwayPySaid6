@@ -51,7 +51,7 @@ QTableWidget::item:nth-row(even) {
 }
 
 QTableWidget::item:selected {
-    background-color: #3498db;
+    background-color: #3498db; /* Голубой цвет как в запросе */
     color: white;
 }
 
@@ -68,6 +68,14 @@ QHeaderView::section {
     font-size: 11px;
     font-family: "Segoe UI", Arial, sans-serif;
     text-align: center;
+}
+
+/* Контейнер для правой панели редактирования */
+QWidget[objectName="scrollAreaWidgetContents"] {
+    background-color: #3498db; /* Голубой цвет как у выделенной строки */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 15px;
+    margin: 10px;
 }
 
 /* Кнопки */
@@ -110,10 +118,32 @@ QPushButton[objectName="stop_all_btn"]:hover {
     background-color: #7A6ACD;
 }
 
+/* Кнопки выбора каталогов */
+QPushButton[objectName$="_btn"] {
+    background-color: #6A5ACD; /* SlateBlue */
+    color: #FFFFFF; /* Белый */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px; /* Скругленные углы */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10px;
+    min-height: 25px;
+    min-width: 30px;
+    margin-left: 5px;
+}
+
+QPushButton[objectName$="_btn"]:hover {
+    background-color: #7A6ACD;
+}
+
+QPushButton[objectName$="_btn"]:pressed {
+    background-color: #5A4ABD;
+}
+
 /* Текстовые поля */
 QLineEdit {
     border: 2px solid rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
-    border-radius: 0px;
+    border-radius: 8px; /* Скругленные углы */
     padding: 5px;
     font-family: "Segoe UI", Arial, sans-serif;
     background-color: rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
@@ -146,6 +176,7 @@ QRadioButton {
     color: white;
     padding: 5px;
     margin: 10px; /* Отступы между элементами */
+    border-radius: 8px; /* Скругленные углы */
 }
 
 QRadioButton::indicator {
@@ -171,7 +202,7 @@ QScrollArea {
 QTextEdit {
     background-color: rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
     border: 1px solid #4B0082; /* Indigo */
-    border-radius: 0px;
+    border-radius: 8px; /* Скругленные углы */
     font-family: "Consolas", "Courier New", monospace;
     font-size: 11px;
     color: #FFFFFF; /* Белый */

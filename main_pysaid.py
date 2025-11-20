@@ -199,6 +199,10 @@ class MainWindow(QMainWindow):
         # Выравнивание по центру
         for i in range(5): # 5 колонок: №, Client ID, Рабочее место, Статус, Режим
             self.table.horizontalHeaderItem(i).setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+        
+        # Настройка поведения колонок таблицы - предотвращаем изменение ширины при обновлениях
+        header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)  # Растягиваем последнюю колонку
+        header.setStretchLastSection(True)  # Последняя колонка занимает оставшееся пространство
 
         # === Группа для радиокнопок режима ===
         self.mode_group = QButtonGroup(self)
@@ -218,6 +222,11 @@ class MainWindow(QMainWindow):
         # Подключаем обновление путей при изменении Client ID или Workspace
         self.client_id_edit.textChanged.connect(self.update_paths_for_current)
         self.workspace_edit.textChanged.connect(self.update_paths_for_current)
+        # Подключаем кнопки выбора каталогов
+        self.incoming_btn.clicked.connect(self.select_incoming_directory)
+        self.outgoing_btn.clicked.connect(self.select_outgoing_directory)
+        self.meta_btn.clicked.connect(self.select_meta_directory)
+        self.key_btn.clicked.connect(self.select_key_directory)
 
         # === Загрузка конфигурации ===
         config = load_config()
@@ -275,8 +284,13 @@ class MainWindow(QMainWindow):
                 
                 self.table.setItem(row, col, item)
 
-        # Автоподбор ширины
-        self.table.resizeColumnsToContents()
+        # Устанавливаем фиксированные пропорции колонок вместо автоматического изменения
+        header = self.table.horizontalHeader()
+        # Устанавливаем режим растяжения для всех колонок
+        for col in range(self.table.columnCount()):
+            header.setSectionResizeMode(col, QHeaderView.ResizeMode.Stretch)
+        
+        # Удаляем вызов resizeColumnsToContents() чтобы не изменять ширину колонок при каждом обновлении
 
     def on_table_item_changed(self, current, previous):
         """Вызывается при изменении выделения строки в таблице."""
@@ -413,7 +427,7 @@ class MainWindow(QMainWindow):
                 # Обновляем текущий ключ
                 self.currently_selected_key = new_key
 
-            save_config({"workspaces": self.workers}) # <--- Исправлено: workspaces, а не workers
+            save_config({"workspaces": self.workspaces}) # <--- Исправлено: workspaces, а не workers
             self.refresh_table()
             # Обновляем правую панель с новым ключом, если он изменился
             if self.currently_selected_key in self.workspaces:
@@ -548,6 +562,50 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, "Успех", f"Ключ '{key_name}' сгенерирован и сохранён в:\n{key_path}")
             except Exception as e:
                 QMessageBox.critical(self, "Ошибка", f"Не удалось сгенерировать ключ:\n{e}")
+
+    def select_incoming_directory(self):
+        """Открывает диалог выбора каталога для входящих файлов."""
+        current_path = self.incoming_edit.text()
+        if not current_path:
+            current_path = os.path.join(APP_DIR, self.client_id_edit.text().strip(), self.workspace_edit.text().strip(), "incoming")
+        directory = QFileDialog.getExistingDirectory(self, "Выберите каталог для входящих файлов", current_path)
+        if directory:
+            self.incoming_edit.setText(directory)
+
+    def select_outgoing_directory(self):
+        """Открывает диалог выбора каталога для исходящих файлов."""
+        current_path = self.outgoing_edit.text()
+        if not current_path:
+            current_path = os.path.join(APP_DIR, self.client_id_edit.text().strip(), self.workspace_edit.text().strip(), "outgoing")
+        directory = QFileDialog.getExistingDirectory(self, "Выберите каталог для исходящих файлов", current_path)
+        if directory:
+            self.outgoing_edit.setText(directory)
+
+    def select_meta_directory(self):
+        """Открывает диалог выбора каталога для мета-данных."""
+        current_path = self.meta_edit.text()
+        if not current_path:
+            current_path = os.path.join(APP_DIR, self.client_id_edit.text().strip(), self.workspace_edit.text().strip(), ".meta")
+        directory = QFileDialog.getExistingDirectory(self, "Выберите каталог для мета-данных", current_path)
+        if directory:
+            self.meta_edit.setText(directory)
+
+    def select_key_directory(self):
+        """Открывает диалог выбора каталога для ключа."""
+        current_path = self.key_edit.text()
+        if not current_path:
+            current_path = os.path.join(APP_DIR, self.client_id_edit.text().strip(), self.workspace_edit.text().strip(), "key")
+        directory = QFileDialog.getExistingDirectory(self, "Выберите каталог для ключа", current_path)
+        if directory:
+            # Обновляем путь к ключу, добавляя имя ключа
+            client_id = self.client_id_edit.text().strip()
+            workspace = self.workspace_edit.text().strip()
+            if client_id and workspace:
+                key_name = f"{client_id}-{workspace}"
+                key_path = os.path.join(directory, key_name)
+                self.key_edit.setText(key_path)
+            else:
+                self.key_edit.setText(directory)
 
     def closeEvent(self, event):
         for key in list(self.workers.keys()):
