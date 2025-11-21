@@ -156,304 +156,327 @@
      </layout>
     </item>
     <item>
-     <widget class="QSplitter" name="main_splitter">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <widget class="QWidget" name="table_container">
-       <layout class="QVBoxLayout" name="verticalLayout_table">
-        <item>
-         <widget class="QTableWidget" name="table">
-          <property name="editTriggers">
-           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
-          </property>
-          <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
-          </property>
-          <property name="verticalScrollMode">
-           <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
-          </property>
-          <property name="horizontalScrollMode">
-           <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
-          </property>
-          <attribute name="horizontalHeaderCascadingSectionResizes">
-           <bool>false</bool>
-          </attribute>
-          <attribute name="horizontalHeaderDefaultSectionSize">
-           <number>120</number>
-          </attribute>
-          <attribute name="horizontalHeaderStretchLastSection">
-           <bool>true</bool>
-          </attribute>
-          <attribute name="verticalHeaderDefaultSectionSize">
-           <number>45</number>
-          </attribute>
-          <column>
-           <property name="text">
-            <string>№</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Client ID</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Рабочее место</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Статус</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Режим</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QScrollArea" name="scrollArea">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="widgetResizable">
-        <bool>true</bool>
-       </property>
-       <property name="horizontalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOff</enum>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOff</enum>
-       </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>789</width>
-          <height>352</height>
-         </rect>
+     <layout class="QHBoxLayout" name="main_horizontal_layout">
+      <item>
+       <widget class="QTableWidget" name="table">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_scroll">
-         <property name="spacing">
-          <number>5</number>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>352</height>
+         </size>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+        </property>
+        <property name="verticalScrollMode">
+         <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+        </property>
+        <property name="horizontalScrollMode">
+         <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>120</number>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>45</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>№</string>
          </property>
-         <item>
-          <layout class="QGridLayout" name="edit_grid_layout">
-           <property name="spacing">
-            <number>5</number>
-           </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="client_id_label">
-             <property name="text">
-              <string>Client ID:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="client_id_edit"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="workspace_label">
-             <property name="text">
-              <string>Рабочее место:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="workspace_edit"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="host_label">
-             <property name="text">
-              <string>Хост (server):</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="host_edit"/>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="port_label">
-             <property name="text">
-              <string>Порт:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="port_edit"/>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="interval_label">
-             <property name="text">
-              <string>Интервал (сек):</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLineEdit" name="interval_edit"/>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="incoming_label">
-             <property name="text">
-              <string>Входящие:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <layout class="QHBoxLayout" name="incoming_layout">
-             <item>
-              <widget class="QLineEdit" name="incoming_edit">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="incoming_btn">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="outgoing_label">
-             <property name="text">
-              <string>Исходящие:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <layout class="QHBoxLayout" name="outgoing_layout">
-             <item>
-              <widget class="QLineEdit" name="outgoing_edit">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="outgoing_btn">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="7" column="0">
-            <widget class="QLabel" name="meta_label">
-             <property name="text">
-              <string>Meta:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <layout class="QHBoxLayout" name="meta_layout">
-             <item>
-              <widget class="QLineEdit" name="meta_edit">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="meta_btn">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="8" column="0">
-            <widget class="QLabel" name="mode_label">
-             <property name="text">
-              <string>Режим работы:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="1">
-            <layout class="QHBoxLayout" name="mode_layout">
-             <item>
-              <widget class="QRadioButton" name="mode_client_rb">
-               <property name="text">
-                <string>Клиент</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="mode_processor_rb">
-               <property name="text">
-                <string>Процессор</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="mode_client_sign_rb">
-               <property name="text">
-                <string>Клиент-подпись</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="mode_processor_sign_rb">
-               <property name="text">
-                <string>Процессор-подпись</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="9" column="0">
-            <widget class="QLabel" name="key_label">
-             <property name="text">
-              <string>Путь к ключу:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <layout class="QHBoxLayout" name="key_layout">
-             <item>
-              <widget class="QLineEdit" name="key_edit">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="key_btn">
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="button_layout">
-           <item>
-            <widget class="QPushButton" name="generate_key_btn">
-             <property name="text">
-              <string>Сгенерировать ключ</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
+        </column>
+        <column>
+         <property name="text">
+          <string>Client ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Рабочее место</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Статус</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Режим</string>
+         </property>
+        </column>
        </widget>
-      </widget>
-     </widget>
+      </item>
+      <item>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>789</width>
+           <height>352</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_scroll">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="edit_grid_layout">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="client_id_label">
+              <property name="text">
+               <string>Client ID:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="client_id_edit"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="workspace_label">
+              <property name="text">
+               <string>Рабочее место:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="workspace_edit"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="host_label">
+              <property name="text">
+               <string>Хост (server):</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="host_edit"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="port_label">
+              <property name="text">
+               <string>Порт:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="port_edit"/>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="interval_label">
+              <property name="text">
+               <string>Интервал (сек):</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="interval_edit"/>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="incoming_label">
+              <property name="text">
+               <string>Входящие:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <layout class="QHBoxLayout" name="incoming_layout">
+              <item>
+               <widget class="QLineEdit" name="incoming_edit">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="incoming_btn">
+                <property name="text">
+                 <string>...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="outgoing_label">
+              <property name="text">
+               <string>Исходящие:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <layout class="QHBoxLayout" name="outgoing_layout">
+              <item>
+               <widget class="QLineEdit" name="outgoing_edit">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="outgoing_btn">
+                <property name="text">
+                 <string>...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="meta_label">
+              <property name="text">
+               <string>Meta:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <layout class="QHBoxLayout" name="meta_layout">
+              <item>
+               <widget class="QLineEdit" name="meta_edit">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="meta_btn">
+                <property name="text">
+                 <string>...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="mode_label">
+              <property name="text">
+               <string>Режим работы:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <layout class="QHBoxLayout" name="mode_layout">
+              <item>
+               <widget class="QRadioButton" name="mode_client_rb">
+                <property name="text">
+                 <string>Клиент</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="mode_processor_rb">
+                <property name="text">
+                 <string>Процессор</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="mode_client_sign_rb">
+                <property name="text">
+                 <string>Клиент-подпись</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="mode_processor_sign_rb">
+                <property name="text">
+                 <string>Процессор-подпись</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="9" column="0">
+             <widget class="QLabel" name="key_label">
+              <property name="text">
+               <string>Путь к ключу:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="1">
+             <layout class="QHBoxLayout" name="key_layout">
+              <item>
+               <widget class="QLineEdit" name="key_edit">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="key_btn">
+                <property name="text">
+                 <string>...</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="button_layout">
+            <item>
+             <widget class="QPushButton" name="generate_key_btn">
+              <property name="text">
+               <string>Сгенерировать ключ</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <property name="stretch">
+       <number>1</number>
+       <number>1</number>
+      </property>
+     </layout>
     </item>
     <item>
      <widget class="QLabel" name="log_label">
