@@ -39,7 +39,7 @@ QTableWidget::item:selected {
 
 QHeaderView::section {
     background-color: #3a2663;
-    color: rgb(252, 250, 252); /*Заголовок таблицы*/
+    color: rgb(230, 208, 16); /*Заголовок таблицы*/
     padding: 6px;
     border: none;
     font-weight: bold;
@@ -53,8 +53,8 @@ QWidget#scrollAreaWidgetContents {
 }
 
 QLabel {
-    color: #f1ebf1; /*Название строк в редакторе*/
-    font-weight: normal;
+    color: rgb(230, 208, 16); /*Название строк в редакторе*/
+    font-weight: bold;
 }
 
 QLineEdit {

@@ -239,8 +239,9 @@ class MainWindow(QMainWindow):
         self.log_timer.start(100)
 
         # === Первая запись в лог при запуске ===
-        self.log_callback(f"[{time.strftime('%H:%M:%S')}] Logs:")
-
+        self.log_text.append(f'<span style="color: rgb(230, 208, 16)">[{time.strftime("%H:%M:%S")}] Logs:</span>')
+        # self.log_callback(f"[{time.strftime('%H:%M:%S')}] Logs:")
+        
     def log_callback(self, msg):
         self.log_queue.put(msg)
 
