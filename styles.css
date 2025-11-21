@@ -2,7 +2,7 @@
 
 /* Основное окно */
 QMainWindow {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4B0082, stop:1 #00008B);
+    background-color: qlineargradient(0, 0, 0, 1, 0 #4B0082, 1 #00008B);
     /* Установка фиксированного размера окна */
     min-width: 1200px;
     min-height: 800px;
@@ -210,14 +210,7 @@ QTextEdit {
     margin: 10px; /* Отступы между элементами */
 }
 
-/* Сплиттер */
-QSplitter::handle {
-    background-color: #4B0082; /* Indigo */
-}
 
-QSplitter::handle:hover {
-    background-color: #00008B; /* DarkBlue */
-}
 
 /* Индикаторы статуса */
 QLabel[status="running"] {
@@ -228,4 +221,32 @@ QLabel[status="running"] {
 QLabel[status="stopped"] {
     color: #FFFFFF; /* Белый */
     font-weight: bold;
+}
+
+/* Уменьшенные размеры для формы редактирования */
+QWidget[objectName="edit_form_layout"] QLabel {
+    font-size: 9px;
+    padding: 2px;
+}
+
+QWidget[objectName="edit_form_layout"] QLineEdit {
+    font-size: 10px;
+    padding: 2px;
+    min-height: 20px;
+}
+
+QWidget[objectName="edit_form_layout"] QRadioButton {
+    font-size: 9px;
+    min-height: 18px;
+}
+
+QWidget[objectName="edit_form_layout"] QPushButton[objectName$="_btn"] {
+    font-size: 8px;
+    padding: 2px 6px;
+    min-height: 18px;
+    min-width: 20px;
+}
+
+QWidget[objectName="edit_form_layout"] QGridLayout {
+    spacing: 4px;
 }
