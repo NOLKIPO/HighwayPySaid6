@@ -1,3 +1,36 @@
 {
-    "workspaces": {}
+    "workspaces": {
+        "new_2": {
+            "client_id": "",
+            "workspace": "",
+            "ssh_host": "without.su",
+            "ssh_port": 22,
+            "mode": "client",
+            "poll_interval": 5
+        },
+        "new_3": {
+            "client_id": "",
+            "workspace": "",
+            "ssh_host": "without.su",
+            "ssh_port": 22,
+            "mode": "client",
+            "poll_interval": 5
+        },
+        "111231_222": {
+            "client_id": "111231",
+            "workspace": "222",
+            "ssh_host": "without.su",
+            "ssh_port": 22,
+            "mode": "client",
+            "poll_interval": 5
+        },
+        "123123_123123": {
+            "client_id": "123123",
+            "workspace": "123123",
+            "ssh_host": "without.su",
+            "ssh_port": 22,
+            "mode": "client",
+            "poll_interval": 5
+        }
+    }
 }

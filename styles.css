@@ -1,231 +1,140 @@
-/* Стили для Highway Signer */
+/* styles.css */
+MainWindow {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10pt;
+}
 
-/* Основное окно */
+/* === Основной фон окна === */
 QMainWindow {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4B0082, stop:1 #00008B);
-    /* Установка фиксированного размера окна */
-    min-width: 1200px;
-    min-height: 800px;
-    max-width: 1200px;
-    max-height: 800px;
+    background-color: #2d1a4e; /* Глубокий фиолетовый */
 }
 
-/* Заголовки */
-QLabel {
+/* === Заголовки таблицы и панели действий === */
+QLabel#table_label, QLabel#edit_label {
     color: white;
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 5px; /* Отступы между элементами */
-    font-size: 10px;
-}
-
-QLabel[objectName="table_label"], 
-QLabel[objectName="edit_label"], 
-QLabel[objectName="log_label"] {
-    font-size: 11px;
     font-weight: bold;
-    color: white;
-    border: none;
-    padding: 5px 0;
+    font-size: 11pt;
 }
 
-/* Таблица */
+/* === Таблица рабочих мест === */
 QTableWidget {
-    background-color: white;
-    gridline-color: #e0e0e0;
-    border: 1px solid #d0d0d0;
-    border-radius: 0px;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 10px;
-    color: black;
-    margin: 10px; /* Отступы между элементами */
+    background-color: #4b3779;
+    border: 1px solid #1f1e25;
+    /*border-radius: 8px;*/
+    gridline-color: #6e548d;
+    selection-background-color: #151325;
+    selection-color: #50277e;
 }
 
 QTableWidget::item {
-    padding: 5px;
-    border-right: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    background-color: #FFFFFF; /* Белый для нечётных строк */
-}
-
-QTableWidget::item:nth-row(even) {
-    background-color: #F0F0F0; /* Светло-серый для чётных строк */
+    padding: 4px;
+    border-bottom: 1px solid #6e548d;
+    color: rgb(202, 222, 235);
 }
 
 QTableWidget::item:selected {
-    background-color: #3498db; /* Голубой цвет как в запросе */
-    color: white;
-}
-
-QTableWidget::item:alternate {
-    background-color: #F0F0F0;
+    background-color: #39335f;
+    color: rgb(230, 208, 16); /*Текст в выделенной строке*/
 }
 
 QHeaderView::section {
-    background-color: #2F4F4F; /* DarkSlateGray */
-    color: #FFFFFF; /* Белый */
-    padding: 5px;
+    background-color: #3a2663;
+    color: rgb(252, 250, 252); /*Заголовок таблицы*/
+    padding: 6px;
     border: none;
     font-weight: bold;
-    font-size: 11px;
-    font-family: "Segoe UI", Arial, sans-serif;
-    text-align: center;
 }
 
-/* Контейнер для правой панели редактирования */
-QWidget[objectName="scrollAreaWidgetContents"] {
-    background-color: #3498db; /* Голубой цвет как у выделенной строки */
-    border-radius: 10px; /* Скругленные углы */
-    padding: 15px;
-    margin: 10px;
+/* === Правая панель (редактор) === */
+QWidget#scrollAreaWidgetContents {
+    background-color: #3a2663; /* Темный фиолетовый */
+    /*border-radius: 10px;
+    padding: 12px;*/
 }
 
-/* Кнопки */
-QPushButton {
-    background-color: #6A5ACD; /* SlateBlue */
-    color: #FFFFFF; /* Белый */
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px; /* Радиус углов: 6px */
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-weight: bold;
-    font-size: 9px;
-    min-height: 25px;
-    margin: 5px; /* Отступы между элементами */
-    /* Тень: Лёгкая тень (если поддерживается Qt Designer) */
-    border: 1px solid rgba(0,0,0,0.1);
+QLabel {
+    color: #f1ebf1; /*Название строк в редакторе*/
+    font-weight: normal;
 }
 
-QPushButton:hover {
-    background-color: #7A6ACD;
-}
-
-QPushButton:pressed {
-    background-color: #5A4ABD;
-}
-
-QPushButton[objectName="start_stop_btn"] {
-    background-color: #6A5ACD; /* SlateBlue */
-}
-
-QPushButton[objectName="start_stop_btn"]:hover {
-    background-color: #7A6ACD;
-}
-
-QPushButton[objectName="stop_all_btn"] {
-    background-color: #6A5ACD; /* SlateBlue */
-}
-
-QPushButton[objectName="stop_all_btn"]:hover {
-    background-color: #7A6ACD;
-}
-
-/* Кнопки выбора каталогов */
-QPushButton[objectName$="_btn"] {
-    background-color: #6A5ACD; /* SlateBlue */
-    color: #FFFFFF; /* Белый */
-    border: none;
-    padding: 3px 8px;
-    border-radius: 6px; /* Скругленные углы */
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 9px;
-    min-height: 20px;
-    min-width: 25px;
-    margin-left: 5px;
-}
-
-QPushButton[objectName$="_btn"]:hover {
-    background-color: #7A6ACD;
-}
-
-QPushButton[objectName$="_btn"]:pressed {
-    background-color: #5A4ABD;
-}
-
-/* Текстовые поля */
 QLineEdit {
-    border: 2px solid rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
-    border-radius: 6px; /* Скругленные углы */
-    padding: 3px;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
-    color: #FFFFFF; /* Белый */
-    font-size: 11px; /* Подписи: 11pt, обычный */
-    margin: 5px; /* Отступы между элементами */
+    background-color: #4b3779;
+    border: 1px solid #6c5ce7;
+    border-radius: 6px;
+    padding: 5px 8px;
+    color: rgb(248, 243, 248); /* Текст в редакторе*/
 }
 
 QLineEdit:focus {
-    border-color: #4B0082; /* Indigo */
-    outline: none;
+    border: 1px solid #a29bfe;
 }
 
-/* Текстовые поля для значений */
-QLineEdit[objectName$="_edit"] {
-    font-size: 12px; /* Значения: 12pt, жирный */
-    font-weight: bold;
-}
-
-/* Текстовые поля для заголовков */
-QLineEdit[objectName="header_edit"] {
-    font-size: 14px; /* Заголовок: 14pt, жирный */
-    font-weight: bold;
-}
-
-/* Радиокнопки */
-QRadioButton {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 10px; /* Подписи: 10pt, обычный */
+QPushButton {
+    background-color: #6c5ce7;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
     color: white;
-    padding: 3px;
-    margin: 5px; /* Отступы между элементами */
-    border-radius: 8px; /* Скругленные углы */
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #a29bfe;
+    color: #2d1a4e;
+}
+
+QPushButton:pressed {
+    background-color: #55418f;
+}
+
+QPushButton:disabled {
+    background-color: #8a7faa;
+    color: #cccccc;
+}
+
+QRadioButton {
+    color: white;
+    spacing: 8px;
 }
 
 QRadioButton::indicator {
-    width: 16px; /* Размер: 16x16 пикселей */
-    height: 16px; /* Размер: 16x16 пикселей */
-    border: 1px solid #FFFFFF; /* Белый цвет */
-    border-radius: 8px;
-    background-color: transparent;
+    width: 14px;
+    height: 14px;
 }
 
-QRadioButton::indicator:checked {
-    background-color: #FFFFFF; /* Белый цвет */
-}
-
-/* Область прокрутки */
-QScrollArea {
+/* === Кнопки в верхней панели === */
+QPushButton#add_btn, QPushButton#save_btn, QPushButton#start_stop_btn,
+QPushButton#delete_btn, QPushButton#stop_all_btn {
+    background-color: #6c5ce7;
     border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-weight: bold;
+}
+
+QPushButton#add_btn:hover, QPushButton#save_btn:hover, QPushButton#start_stop_btn:hover,
+QPushButton#delete_btn:hover, QPushButton#stop_all_btn:hover {
+    background-color: #a29bfe;
+    color: #2d1a4e;
+}
+
+/* === Лог-панель (белый текст на чёрном фоне) === */
+QTextEdit#log_text {
+    background-color: #000000;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    font-family: Consolas, Courier, monospace;
+    font-size: 9pt;
+    color: #ffffff;
+    padding: 8px;
+}
+
+QScrollArea {
     background-color: transparent;
-    margin: 10px; /* Отступы между элементами */
+    border: none;
 }
 
-/* Логи */
-QTextEdit {
-    background-color: rgba(75, 0, 130, 0.7); /* Полупрозрачный фиолетовый — rgba(75, 0, 130, 0.7) */
-    border: 1px solid #4B0082; /* Indigo */
-    border-radius: 8px; /* Скругленные углы */
-    font-family: "Consolas", "Courier New", monospace;
-    font-size: 11px;
-    color: #FFFFFF; /* Белый */
-    margin: 10px; /* Отступы между элементами */
-}
-
-/* Сплиттер */
-QSplitter::handle {
-    background-color: #4B0082; /* Indigo */
-}
-
-QSplitter::handle:hover {
-    background-color: #00008B; /* DarkBlue */
-}
-
-/* Индикаторы статуса */
-QLabel[status="running"] {
-    color: #FFFFFF; /* Белый */
-    font-weight: bold;
-}
-
-QLabel[status="stopped"] {
-    color: #FFFFFF; /* Белый */
-    font-weight: bold;
+QScrollArea > QWidget {
+    background-color: transparent;
 }
