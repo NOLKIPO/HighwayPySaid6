@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>800</height>
+    <width>1400</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1200</width>
-    <height>800</height>
+    <width>1400</width>
+    <height>900</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1200</width>
-    <height>800</height>
+    <width>1400</width>
+    <height>900</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -224,6 +224,12 @@
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
        <widget class="QWidget" name="scrollAreaWidgetContents">
         <property name="geometry">
          <rect>
@@ -234,8 +240,14 @@
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_scroll">
+         <property name="spacing">
+          <number>5</number>
+         </property>
          <item>
           <layout class="QGridLayout" name="edit_grid_layout">
+           <property name="spacing">
+            <number>5</number>
+           </property>
            <item row="0" column="0">
             <widget class="QLabel" name="client_id_label">
              <property name="text">

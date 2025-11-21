@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
         PyQt6.uic.loadUi('main_window.ui', self) # <--- Загружаем .ui файл
 
         # Устанавливаем фиксированный размер окна, если нужно
-        self.resize(1200, 800)
+        self.resize(1400, 900)
 
         # Инициализируем внутренние переменные
         self.workers = {}
