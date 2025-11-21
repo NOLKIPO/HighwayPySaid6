@@ -19,7 +19,7 @@ QLabel#table_label, QLabel#edit_label {
 /* === Таблица рабочих мест === */
 QTableWidget {
     background-color: #4b3779;
-    border: 1px solid #1f1e25;
+    border: 1px solid #4b3779; /*Цвет границы таблицы*/
     /*border-radius: 8px;*/
     gridline-color: #6e548d;
     selection-background-color: #151325;
@@ -48,6 +48,7 @@ QHeaderView::section {
 /* === Правая панель (редактор) === */
 QWidget#scrollAreaWidgetContents {
     background-color: #3a2663; /* Темный фиолетовый */
+    border: 1px solid #4b3779; /*Цвет границы таблицы*/
     /*border-radius: 10px;
     padding: 12px;*/
 }
@@ -137,4 +138,8 @@ QScrollArea {
 
 QScrollArea > QWidget {
     background-color: transparent;
+}
+
+QSplitter::handle {
+    width: 0px;
 }

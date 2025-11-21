@@ -186,6 +186,10 @@ class MainWindow(QMainWindow):
         # Устанавливаем фиксированный размер окна, если нужно
         self.resize(1400, 900)
 
+        # Настройка сплиттера
+        self.main_splitter.setHandleWidth(0)  # скрываем «палку» между панелями
+        self.main_splitter.setChildrenCollapsible(False)  # запрещаем сворачивание частей
+
         # Инициализируем внутренние переменные
         self.workers = {}
         self.log_queue = queue.Queue()
@@ -242,6 +246,9 @@ class MainWindow(QMainWindow):
         self.log_text.append(f'<span style="color: rgb(230, 208, 16)">[{time.strftime("%H:%M:%S")}] Logs:</span>')
         # self.log_callback(f"[{time.strftime('%H:%M:%S')}] Logs:")
         
+        # Устанавливаем сплиттер 50/50
+        QTimer.singleShot(0, self._set_splitter_equal)
+
     def log_callback(self, msg):
         self.log_queue.put(msg)
 
@@ -610,6 +617,11 @@ class MainWindow(QMainWindow):
                 self.key_edit.setText(key_path)
             else:
                 self.key_edit.setText(directory)
+
+    def _set_splitter_equal(self):
+        total = self.main_splitter.width()
+        if total > 100:
+            self.main_splitter.setSizes([total // 2, total // 2])   
 
     def closeEvent(self, event):
         for key in list(self.workers.keys()):
